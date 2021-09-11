@@ -1,5 +1,7 @@
 {
   "name": "Priya",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
