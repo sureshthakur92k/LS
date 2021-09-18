@@ -8,6 +8,7 @@ import { RegistraionPageRoutingModule } from './registraion-routing.module';
 
 import { RegistraionPage } from './registraion.page';
 import {MatCardModule} from '@angular/material/card';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import {MatCardModule} from '@angular/material/card';
     FormsModule,
     IonicModule,
     RegistraionPageRoutingModule,
-    MatCardModule
+    MatCardModule,
+    ReactiveFormsModule
   ],
   declarations: [RegistraionPage]
 })

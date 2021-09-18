@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
+import {FormControl,FormGroup,Validator,FormBuilder} from '@angular/forms';
 
 
 
@@ -15,10 +16,29 @@ export class RegistraionPage implements OnInit {
   AllState: any=[];
   AllCityByState: any=[];
   AllBlockByCity: any=[];
+FirstName="";
+
   constructor(
-    private http:HttpClient
+    private http:HttpClient,
+    public formBuilder: FormBuilder
   ) { }
 
+RegistraionForm=new FormGroup({
+  FirstName: new FormControl(''),
+  LastName: new FormControl(''),
+  FatherName: new FormControl(''),
+  GrandFatherName: new FormControl(''),
+  Address1:new FormControl(''),
+  Address2:new FormControl(''),
+  State:new FormControl(''),
+  City:new FormControl(''),
+  
+});
+// RegistraionForm: FormGroup;
+submitRegistationForm() {
+  debugger;
+  console.log(this.RegistraionForm.value);
+}
   ngOnInit() {
     this.GetAllStateService().subscribe(data=>{
      // console.log("GOT DATA");
