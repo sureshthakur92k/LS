@@ -80,6 +80,17 @@
         </ion-item>
       </div>
     </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <ion-item>
+          <ion-label position="floating"> Block :</ion-label>
+          <ion-select formControlName="Block">         
+            <ion-select-option *ngFor="let item of AllBlockByCity;" value="{{item.blockid}}">{{item.blockname }} </ion-select-option>
+      </ion-select>
+        </ion-item>
+      </div>
+    </div>
   </mat-card>
   <ion-row>
     <ion-col>
