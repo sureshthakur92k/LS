@@ -12,6 +12,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import {MatCardModule} from '@angular/material/card';
 import {HttpClientModule} from '@angular/common/http';
 import {MatRadioModule} from '@angular/material/radio';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import {MatRadioModule} from '@angular/material/radio';
     MatExpansionModule,
     MatCardModule,
     HttpClientModule,
-    MatRadioModule
+    MatRadioModule,
+     ReactiveFormsModule,
+     FormsModule,
     ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
