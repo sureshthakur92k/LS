@@ -23,7 +23,11 @@ Pass12th:any;
 TenthOr12thBardName:any=[];
 UniversityName:any=[];
 PassingYear10th:any=[];
-PersentOf10th:any=[];
+PassingYear12th:any=[];
+PassingYearGradution:any=[];
+percentageOf10th:any=[];
+percentageOf12th:any=[];
+percentageOfGradution:any=[];
 ishidden:Boolean;
 streamsOf12th:any=[];
 streamsOfGradution:any=[];
@@ -54,7 +58,15 @@ Gradution:any;
      })
      this.PassingYear10th=[2000,2001,
       2002,2003,2004,2005,2006,2007,2008,2009,20010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,];
-      this.PersentOf10th=[30,35,40,45,50,55,60,65,70,75,80,85,90,95]
+      this.PassingYear12th=[2000,2001,
+        2002,2003,2004,2005,2006,2007,2008,2009,20010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,];
+        this.PassingYearGradution=[2000,2001,
+          2002,2003,2004,2005,2006,2007,2008,2009,20010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,];
+      this.percentageOf10th=[30,35,40,45,50,55,60,65,70,75,80,85,90,95];
+      this.percentageOf12th=[30,35,40,45,50,55,60,65,70,75,80,85,90,95];
+      this.percentageOfGradution=[30,35,40,45,50,55,60,65,70,75,80,85,90,95];
+      
+      
      this.streamsOf12th=["Science","Commerce","Arts"];
      this.GetGradutionStream().subscribe(data=>{
       // debugger;
@@ -86,9 +98,11 @@ Gradution:any;
         this.educationalDetails = this.formBuilder.group({
           TenthOr12BoardName: ['', Validators.required],
           PassingYear10th: ['', Validators.required],
-          PersentOf10th: ['',Validators.required],
           PassingYear12th: ['', Validators.required],
-          PersentOf12th: ['',Validators.required],
+          PassingYearGradution: ['', Validators.required],
+          percentageOf10th: ['',Validators.required],
+          percentageOf12th: ['',Validators.required],
+          percentageOfGradution: ['',Validators.required],
           streamsOf12th: ['',Validators.required],
           Gradution: ['',Validators.required],
           streamsOfGradution: ['',Validators.required],
@@ -148,7 +162,18 @@ Gradution:any;
       this.RegObje.StateName=this.AllState[this.addressDetails.value.State-1].StateName;
       this.RegObje.cityname=City[0].cityname;
       this.RegObje.blockname=Block[0].blockname
-     // debugger;
+
+      this.RegObje.TenthOr12BoardName=this.educationalDetails.value.TenthOr12BoardName
+      this.RegObje.PassingYear10th=this.educationalDetails.value.PassingYear10th
+      this.RegObje.PassingYear12th=this.educationalDetails.value.PassingYear12th
+      this.RegObje.PassingYearGradution=this.educationalDetails.value.PassingYearGradution
+      this.RegObje.percentageOf10th=this.educationalDetails.value.percentageOf10th
+      this.RegObje.percentageOf12th=this.educationalDetails.value.percentageOf12th
+      this.RegObje.percentageOfGradution=this.educationalDetails.value.percentageOfGradution
+      this.RegObje.streamsOf12th=this.educationalDetails.value.streamsOf12th
+      this.RegObje.Gradution=this.educationalDetails.value.Gradution
+      this.RegObje.streamsOfGradution=this.educationalDetails.value.streamsOfGradution
+      debugger;
       this.SaveRegistrationService(this.RegObje).subscribe(d=>{
         var ss=d;
       });
@@ -172,7 +197,17 @@ RegObje={
   Address2:"",
   StateName:"",
   cityname:"",
-  blockname:""
+  blockname:"",
+  TenthOr12BoardName:"",
+  PassingYear10th:"",
+  PassingYear12th:"",
+  PassingYearGradution:"",
+  percentageOf10th:"",
+  percentageOf12th:"",
+  percentageOfGradution:"",
+  streamsOf12th:"",
+  Gradution:"",
+  streamsOfGradution:""
 }
 ResetAll()
 {
