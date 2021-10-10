@@ -122,33 +122,145 @@
          <form [formGroup]="educationalDetails" id="msform3">
             <fieldset *ngIf="step == 3">
                 <h2 class="fs-title">Educational Details</h2>
-
-                
                 <ion-list>
                   <ion-radio-group (ionChange) ="onChangeHandler($event)">
-                    <ion-list-header>
-                      <ion-label>
-                        Auto Manufacturers
-                      </ion-label>
-                    </ion-list-header>
-                
                     <ion-item>
                       <ion-label>10Th</ion-label>
-                      <ion-radio value="10Th"></ion-radio>
-                    </ion-item>
+                      <ion-radio value="10Th"></ion-radio>                    
+                    </ion-item>                   
+                      <div class="text-center purple" *ngIf="Pass10th == 1">10Details                     
+                        <ion-item>
+                          <ion-label position="floating"> 10th :</ion-label>
+                          <ion-select  formControlName="TenthOr12BoardName">         
+                            <ion-select-option *ngFor="let item of TenthOr12thBardName;">{{item.BoardName }} </ion-select-option>
+                      </ion-select>
+                        </ion-item>
+                        <ion-row>
+                          <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
+                            <ion-item>
+                              <ion-label position="floating"> 10th Passed Year :</ion-label>
+                              <ion-select  formControlName="PassingYear10th">         
+                                <ion-select-option *ngFor="let item of PassingYear10th;">{{item}} </ion-select-option>
+                          </ion-select>
+                            </ion-item>
+                          </ion-col >
+                          <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
+                            <ion-item>
+                              <ion-label position="floating"> 10th % :</ion-label>
+                              <ion-select  formControlName="PersentOf10th">         
+                                <ion-select-option *ngFor="let item of PersentOf10th;">{{item}} </ion-select-option>
+                          </ion-select>
+                            </ion-item>
+                          </ion-col>
+                        </ion-row>
+                      </div>             
                     <ion-item>
                       <ion-label>Non 10Th</ion-label>
                       <ion-radio value="Non10Th"></ion-radio>
                     </ion-item>
-                
-                    
                   </ion-radio-group>
                 </ion-list>
              
+                <!-- For 12 -->
+                <ion-list>
+                  <ion-radio-group (ionChange) ="onChangeHandler12th($event)">
+                    <ion-item>
+                      <ion-label>12Th</ion-label>
+                      <ion-radio value="12Th"></ion-radio>                    
+                    </ion-item>                   
+                      <div class="text-center purple" *ngIf="Pass12th == 1">12Details
+                        <ion-row>
+                          <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
+                            <ion-item>
+                              <ion-label position="floating"> 12th :</ion-label>
+                              <ion-select  formControlName="TenthOr12BoardName">         
+                                <ion-select-option *ngFor="let item of TenthOr12thBardName;">{{item.BoardName }} </ion-select-option>
+                          </ion-select>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
+                            <ion-item>
+                              <ion-label position="floating"> Streams :</ion-label>
+                              <ion-select  formControlName="streamsOf12th">         
+                                <ion-select-option *ngFor="let item of streamsOf12th;">{{item}} </ion-select-option>
+                          </ion-select>
+                            </ion-item>
+                          </ion-col>
+                        </ion-row>                     
+                        
+                        <ion-row>
+                          <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
+                            <ion-item>
+                              <ion-label position="floating"> 12th Passed Year :</ion-label>
+                              <ion-select  formControlName="PassingYear12th">         
+                                <ion-select-option *ngFor="let item of PassingYear10th;">{{item}} </ion-select-option>
+                          </ion-select>
+                            </ion-item>
+                          </ion-col >
+                          <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
+                            <ion-item>
+                              <ion-label position="floating"> 12th % :</ion-label>
+                              <ion-select  formControlName="PersentOf12th">         
+                                <ion-select-option *ngFor="let item of PersentOf10th;">{{item}} </ion-select-option>
+                          </ion-select>
+                            </ion-item>
+                          </ion-col>
+                        </ion-row>
+                      </div>             
+                  </ion-radio-group>
+                </ion-list>
+
+                 <!-- For Gradution -->
+                 <ion-list>
+                  <ion-radio-group (ionChange) ="onChangeHandlerGradution($event)">
+                    <ion-item>
+                      <ion-label>Gradution</ion-label>
+                      <ion-radio value="Gradution"></ion-radio>                    
+                    </ion-item>                   
+                      <div class="text-center purple" *ngIf="Gradution == 1">Gradution Details
+                        <ion-row>
+                          <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
+                            <ion-item>
+                              <ion-label position="floating"> Gradution :</ion-label>
+                              <ion-select  formControlName="Gradution">         
+                                <ion-select-option *ngFor="let item of UniversityName;">{{item.UniversityName }} </ion-select-option>
+                          </ion-select>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
+                            <ion-item>
+                              <ion-label position="floating"> Streams :</ion-label>
+                              <ion-select  formControlName="streamsOfGradution">         
+                                <ion-select-option *ngFor="let item of streamsOfGradution;">{{item.UG_CourseName}} </ion-select-option>
+                          </ion-select>
+                            </ion-item>
+                          </ion-col>
+                        </ion-row>                     
+                        
+                        <ion-row>
+                          <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
+                            <ion-item>
+                              <ion-label position="floating"> Gradution Passed Year :</ion-label>
+                              <ion-select  formControlName="PassingYear12th">         
+                                <ion-select-option *ngFor="let item of PassingYear10th;">{{item}} </ion-select-option>
+                          </ion-select>
+                            </ion-item>
+                          </ion-col >
+                          <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
+                            <ion-item>
+                              <ion-label position="floating"> Gradution % :</ion-label>
+                              <ion-select  formControlName="PersentOf12th">         
+                                <ion-select-option *ngFor="let item of PersentOf10th;">{{item}} </ion-select-option>
+                          </ion-select>
+                            </ion-item>
+                          </ion-col>
+                        </ion-row>
+                      </div>             
+                  </ion-radio-group>
+                </ion-list>
                
               
-                <div class="text-center purple" *ngIf="sh == 1">Adams</div>
-                <div class="text-center red" *ngIf="sh == 0">Johnas</div>
+                
                 <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                 <input (click)="submit()"type="submit" name="submit" class="submit action-button" value="Submit"/>
             </fieldset>

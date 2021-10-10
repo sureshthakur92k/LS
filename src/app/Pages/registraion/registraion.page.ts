@@ -6,6 +6,7 @@ import {FormControl,FormGroup,Validators,FormBuilder} from '@angular/forms';
 
 
 
+
 @Component({
   selector: 'app-registraion',
   templateUrl: './registraion.page.html',
@@ -17,9 +18,16 @@ export class RegistraionPage implements OnInit {
   AllCityByState: any=[];
   AllBlockByCity: any=[];
 FirstName="";
-sh: any;
-  isChecked: boolean = true;
-
+Pass10th:any;
+Pass12th:any;
+TenthOr12thBardName:any=[];
+UniversityName:any=[];
+PassingYear10th:any=[];
+PersentOf10th:any=[];
+ishidden:Boolean;
+streamsOf12th:any=[];
+streamsOfGradution:any=[];
+Gradution:any;
   // constructor(
   //   private http:HttpClient,
   //   public formBuilder: FormBuilder
@@ -36,11 +44,21 @@ sh: any;
   constructor(private http:HttpClient,
     private formBuilder: FormBuilder) { }
   ngOnInit() {
+   //debugger
+    this.ishidden=true;
     this.GetAllStateService().subscribe(data=>{
       // console.log("GOT DATA");
       // console.log(data);
        this.AllState=data;
        //return data;
+     })
+     this.PassingYear10th=[2000,2001,
+      2002,2003,2004,2005,2006,2007,2008,2009,20010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,];
+      this.PersentOf10th=[30,35,40,45,50,55,60,65,70,75,80,85,90,95]
+     this.streamsOf12th=["Science","Commerce","Arts"];
+     this.GetGradutionStream().subscribe(data=>{
+      // debugger;
+      this.streamsOfGradution=data;
      })
         this.personalDetails = this.formBuilder.group({
             // name: ['', Validators.required],
@@ -66,9 +84,14 @@ sh: any;
         });
 
         this.educationalDetails = this.formBuilder.group({
-            // highest_qualification: ['', Validators.required],
-            // university: ['', Validators.required],
-            // total_marks: ['',Validators.required]
+          TenthOr12BoardName: ['', Validators.required],
+          PassingYear10th: ['', Validators.required],
+          PersentOf10th: ['',Validators.required],
+          PassingYear12th: ['', Validators.required],
+          PersentOf12th: ['',Validators.required],
+          streamsOf12th: ['',Validators.required],
+          Gradution: ['',Validators.required],
+          streamsOfGradution: ['',Validators.required],
         });
   }
 
@@ -206,6 +229,21 @@ ionViewWillEnter()
   {
     return this.http.get("http://localhost:4506/api/GelAllState");
   }
+  Get10thOr12thBardName()
+  {
+    return this.http.get("http://localhost:4506/api/Get10thOr12thBardName");
+  }
+
+  GetUniversity()
+  {
+    return this.http.get("http://localhost:4506/api/GetUniversity");
+  }
+  GetGradutionStream()
+  {
+    //debugger;
+    return this.http.get("http://localhost:4506/api/GetGradutionStream");
+  }
+  
   
   GetAllCityByStateService(StateId :any)
   {
@@ -330,8 +368,44 @@ ionViewWillEnter()
 
 onChangeHandler(event)
 {
-  debugger;
-  var a=event.target.value;
+ //debugger;
+  var val=event.target.value;
+
+  if(val ==="Non10Th")
+  {
+    this.Pass10th=0;
+    
+  }
+  else{
+    this.Pass10th=1;
+    this.ishidden=false;
+    this.Get10thOr12thBardName().subscribe(data=>{
+       this.TenthOr12thBardName=data;
+     })
+  }
+}
+
+onChangeHandler12th(event)
+{
+  //debugger;
+  var val=event.target.value;
+  this.Pass12th=1;
+  this.ishidden=false;
+  this.Get10thOr12thBardName().subscribe(data=>{
+     this.TenthOr12thBardName=data;
+   })
+}
+onChangeHandlerGradution(event)
+{
+//debugger;
+var val=event.target.value;
+this.Gradution=1;
+this.ishidden=false;
+this.GetUniversity().subscribe(data=>{
+   this.UniversityName=data;
+ });
+ 
+ 
 }
 }
 
