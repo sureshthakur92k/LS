@@ -80,11 +80,11 @@ Gradution:any;
             LastName: new FormControl(''),
             FatherName: new FormControl(''),
             GrandFatherName: new FormControl(''),
-            // Address1:new FormControl(''),
-            // Address2:new FormControl(''),
-            // State:new FormControl(''),
-            // City:new FormControl(''),
-            // Block:new FormControl(''),
+            Color:new FormControl(''),
+            Height:new FormControl(''),
+            PersonalEmail:new FormControl(''),
+            PersonalPhone:new FormControl(''),
+            ParentPhone:new FormControl(''),
         });
 
         this.addressDetails = this.formBuilder.group({
@@ -300,7 +300,18 @@ ionViewWillEnter()
       "Address2":RegObj.Address2,
       "State":RegObj.StateName,
       "City":RegObj.cityname,
-      "Block":RegObj.blockname
+      "Block":RegObj.blockname,
+
+      "TenthOr12BoardName":RegObj.TenthOr12BoardName,
+      "PassingYear10th":RegObj.PassingYear10th,
+      "PassingYear12th":RegObj.PassingYear12th,
+      "PassingYearGradution":RegObj.PassingYearGradution,
+      "percentageOf10th":RegObj.percentageOf10th,
+      "percentageOf12th":RegObj.percentageOf12th,
+      "percentageOfGradution":RegObj.percentageOfGradution,
+      "streamsOf12th":RegObj.streamsOf12th,
+      "Gradution":RegObj.Gradution,
+      "streamsOfGradution":RegObj.streamsOfGradution
       
     } 
     return this.http.post("http://localhost:4506/api/NewRegistraion",obj);

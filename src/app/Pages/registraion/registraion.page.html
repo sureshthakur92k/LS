@@ -56,7 +56,47 @@
                     </ion-item>
                   </div>
                 </div>
-            
+                <div class="form-row">
+                  <div class="form-group col-xs-6 col-sm-6 col-md-12 col-lg-12">
+                    <ion-item>
+                      <ion-label position="floating"> Personal Email</ion-label>
+                      <ion-input type="text" formControlName="PersonalEmail"></ion-input>
+                    </ion-item>
+                  </div>
+                </div>
+                <ion-row>
+                  <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
+                    <ion-item>
+                      <ion-label position="floating"> Height :</ion-label>
+                      <ion-select  formControlName="Height">         
+                        <ion-select-option *ngFor="let item of PassingYearGradution;">{{item}} </ion-select-option>
+                  </ion-select>
+                    </ion-item>
+                  </ion-col >
+                  <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
+                    <ion-item>
+                      <ion-label position="floating"> Color:</ion-label>
+                      <ion-select  formControlName="Color">         
+                        <ion-select-option *ngFor="let item of percentageOfGradution;">{{item}} </ion-select-option>
+                  </ion-select>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+
+                <ion-row>
+                  <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
+                    <ion-item>
+                      <ion-label position="floating"> Personal Phone :</ion-label>
+                      <ion-input type="text" formControlName="PersonalPhone"></ion-input>
+                    </ion-item>
+                  </ion-col >
+                  <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
+                    <ion-item>
+                      <ion-label position="floating"> Pharent Phone:</ion-label>
+                      <ion-input type="text" formControlName="ParentPhone"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
                 
               
                 <input (click)="next()" type="button" name="next" class="next action-button" value="Next"/>
