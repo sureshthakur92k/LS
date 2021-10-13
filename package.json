@@ -26,6 +26,8 @@
     "@ionic/angular": "^5.5.2",
     "bootstrap": "^5.1.0",
     "cordova-android": "9.1.0",
+    "html-to-pdfmake": "^2.3.4",
+    "pdfmake": "^0.2.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"

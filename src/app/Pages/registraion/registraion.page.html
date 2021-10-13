@@ -69,15 +69,15 @@
                     <ion-item>
                       <ion-label position="floating"> Height :</ion-label>
                       <ion-select  formControlName="Height">         
-                        <ion-select-option *ngFor="let item of PassingYearGradution;">{{item}} </ion-select-option>
+                        <ion-select-option *ngFor="let item of Height;">{{item.HeightLength}} </ion-select-option>
                   </ion-select>
                     </ion-item>
                   </ion-col >
                   <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
                     <ion-item>
-                      <ion-label position="floating"> Color:</ion-label>
-                      <ion-select  formControlName="Color">         
-                        <ion-select-option *ngFor="let item of percentageOfGradution;">{{item}} </ion-select-option>
+                      <ion-label position="floating"> Complexion:</ion-label>
+                      <ion-select  formControlName="Complexion">         
+                        <ion-select-option *ngFor="let item of Complexion;">{{item.SkinType}} </ion-select-option>
                   </ion-select>
                     </ion-item>
                   </ion-col>
@@ -94,6 +94,33 @@
                     <ion-item>
                       <ion-label position="floating"> Pharent Phone:</ion-label>
                       <ion-input type="text" formControlName="ParentPhone"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+
+                <ion-row>
+                  <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
+                    <!-- <ion-item>
+                      <ion-label position="floating"> Cast :</ion-label>
+                      <ion-input type="text" formControlName="Cast"></ion-input>
+                    </ion-item> -->
+                    <ion-item>
+                      <ion-label position="floating"> Cast :</ion-label>
+                      <ion-select (ionChange)="GetSubCastByCastId($event)" formControlName="Cast">         
+                        <ion-select-option *ngFor="let item of Cast;" value="{{item.castId}}">{{item.CastName }} </ion-select-option>
+                  </ion-select>
+                    </ion-item>
+                  </ion-col >
+                  <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
+                    <!-- <ion-item>
+                      <ion-label position="floating"> Sub Cast:</ion-label>
+                      <ion-input type="text" formControlName="SubCast"></ion-input>
+                    </ion-item> -->
+                    <ion-item>
+                      <ion-label position="floating"> Sub Cast :</ion-label>
+                      <ion-select formControlName="SubCast">         
+                        <ion-select-option *ngFor="let item of AllSubCastByCast;" value="{{item.subcastid}}">{{item.subcastname }} </ion-select-option>
+                  </ion-select>
                     </ion-item>
                   </ion-col>
                 </ion-row>

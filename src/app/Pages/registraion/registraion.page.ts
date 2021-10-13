@@ -17,6 +17,7 @@ export class RegistraionPage implements OnInit {
   AllState: any=[];
   AllCityByState: any=[];
   AllBlockByCity: any=[];
+  AllSubCastByCast: any=[];
 FirstName="";
 Pass10th:any;
 Pass12th:any;
@@ -32,6 +33,9 @@ ishidden:Boolean;
 streamsOf12th:any=[];
 streamsOfGradution:any=[];
 Gradution:any;
+Complexion:any=[];
+Height:any=[];
+Cast:any=[];
   // constructor(
   //   private http:HttpClient,
   //   public formBuilder: FormBuilder
@@ -72,6 +76,19 @@ Gradution:any;
       // debugger;
       this.streamsOfGradution=data;
      })
+     this.GetSkinType().subscribe(data=>{
+      // debugger;
+      this.Complexion=data;
+     })
+     this.GetHeight().subscribe(data=>{
+      // debugger;
+      this.Height=data;
+     })
+     this.GetCast().subscribe(data=>{
+      // debugger;
+      this.Cast=data;
+     })
+     
         this.personalDetails = this.formBuilder.group({
             // name: ['', Validators.required],
             // email: ['', Validators.required],
@@ -80,11 +97,15 @@ Gradution:any;
             LastName: new FormControl(''),
             FatherName: new FormControl(''),
             GrandFatherName: new FormControl(''),
-            Color:new FormControl(''),
+            Complexion:new FormControl(''),
             Height:new FormControl(''),
             PersonalEmail:new FormControl(''),
             PersonalPhone:new FormControl(''),
             ParentPhone:new FormControl(''),
+            Cast:new FormControl(''),
+            SubCast:new FormControl(''),
+            
+            
         });
 
         this.addressDetails = this.formBuilder.group({
@@ -278,7 +299,21 @@ ionViewWillEnter()
     //debugger;
     return this.http.get("http://localhost:4506/api/GetGradutionStream");
   }
-  
+  GetSkinType()
+  {
+    //debugger;
+    return this.http.get("http://localhost:4506/api/GetSkinType");
+  }
+  GetHeight()
+  {
+    //debugger;
+    return this.http.get("http://localhost:4506/api/GetHeight");
+  }
+  GetCast()
+  {
+    //debugger;
+    return this.http.get("http://localhost:4506/api/GetCast");
+  }
   
   GetAllCityByStateService(StateId :any)
   {
@@ -287,6 +322,15 @@ ionViewWillEnter()
                    "StateId":StateId
               }   
     return this.http.post("http://localhost:4506/api/GetCityByState",postData);
+  }
+
+  GetAllSubCastByCastIdService(CastId :any)
+  {
+   // debugger;
+    var  postData = {
+                   "CastId":CastId
+              }   
+    return this.http.post("http://localhost:4506/api/GetSubCastByCastId",postData);
   }
 
   SaveRegistrationService(RegObj :any)
@@ -335,6 +379,20 @@ ionViewWillEnter()
       this.AllCityByState=s;
       this.AllCityByState=this.AllCityByState.recordset;
      //console.log("City data "+JSON.stringify(this.AllCityByState) );
+    });
+  }
+
+  GetSubCastByCastId(CastId)
+  {
+    debugger;
+   this.AllSubCastByCast=[];
+   console.log(this.AllSubCastByCast.lengtn);
+    
+    var CastId=CastId.detail.value
+    this.GetAllSubCastByCastIdService(CastId).subscribe(s=>{
+      this.AllSubCastByCast=s;
+      this.AllSubCastByCast=this.AllSubCastByCast.recordset;
+     console.log("City data "+JSON.stringify(this.AllSubCastByCast) );
     });
   }
   GetBlockByCity(CityId)

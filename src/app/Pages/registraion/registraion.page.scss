@@ -84,10 +84,10 @@
 
 /*headings*/
 .fs-title {
-    font-size: 18px;
+    font-size: 15px;
     text-transform: uppercase;
     color: #2C3E50;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     letter-spacing: 2px;
     font-weight: bold;
 }
@@ -101,7 +101,7 @@
 
 /*progressbar*/
 #progressbar {
-    margin-bottom: 5px;
+    margin-bottom: -12px;
     overflow: hidden;
     /*CSS counters to number the steps*/
     counter-reset: step;
