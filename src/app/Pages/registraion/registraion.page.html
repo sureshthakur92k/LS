@@ -27,7 +27,7 @@
                 <div class="form-row">
                   <div class="form-group col-xs-6 col-sm-6 col-md-12 col-lg-12">
                     <ion-item>
-                      <ion-label position="floating"> First Name</ion-label>
+                      <ion-label class="FontSizeforLable" position="floating"> First Name</ion-label>
                      <ion-input type="text" formControlName="FirstName"></ion-input>
                     </ion-item>
                   </div>
@@ -35,7 +35,7 @@
                 <div class="form-row">
                   <div class="form-group col-xs-6 col-sm-6 col-md-12 col-lg-12">
                     <ion-item>
-                      <ion-label position="floating"> Last Name</ion-label>
+                      <ion-label class="FontSizeforLable" position="floating"> Last Name</ion-label>
                       <ion-input type="text" formControlName="LastName"></ion-input>
                     </ion-item>
                   </div>
@@ -43,7 +43,7 @@
                 <div class="form-row">
                   <div class="form-group col-xs-6 col-sm-6 col-md-12 col-lg-12">
                     <ion-item>
-                      <ion-label position="floating"> Father Name</ion-label>
+                      <ion-label class="FontSizeforLable" position="floating"> Father Name</ion-label>
                       <ion-input type="text" formControlName="FatherName"></ion-input>
                     </ion-item>
                   </div>
@@ -51,23 +51,40 @@
                 <div class="form-row">
                   <div class="form-group col-xs-6 col-sm-6 col-md-12 col-lg-12">
                     <ion-item>
-                      <ion-label position="floating"> Grand Father Name</ion-label>
+                      <ion-label class="FontSizeforLable" position="floating"> Grand Father Name</ion-label>
                       <ion-input type="text" formControlName="GrandFatherName"></ion-input>
                     </ion-item>
                   </div>
                 </div>
-                <div class="form-row">
+                <!-- <div class="form-row">
                   <div class="form-group col-xs-6 col-sm-6 col-md-12 col-lg-12">
                     <ion-item>
                       <ion-label position="floating"> Personal Email</ion-label>
                       <ion-input type="text" formControlName="PersonalEmail"></ion-input>
                     </ion-item>
                   </div>
-                </div>
+                </div> -->
+
                 <ion-row>
                   <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
                     <ion-item>
-                      <ion-label position="floating"> Height :</ion-label>
+                      <ion-label class="FontSizeforLable" position="floating"> Personal Email :</ion-label>
+                      <ion-input type="text" formControlName="PersonalEmail"></ion-input>
+                    </ion-item>
+                  </ion-col >
+                  <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
+                    <ion-item>
+                      <ion-label class="FontSizeforLable" position="floating"> Gender:</ion-label>
+                      <ion-select  formControlName="Gender">         
+                        <ion-select-option *ngFor="let item of Gender;">{{item}} </ion-select-option>
+                  </ion-select>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
+                    <ion-item>
+                      <ion-label class="FontSizeforLable" position="floating"> Height :</ion-label>
                       <ion-select  formControlName="Height">         
                         <ion-select-option *ngFor="let item of Height;">{{item.HeightLength}} </ion-select-option>
                   </ion-select>
@@ -75,7 +92,7 @@
                   </ion-col >
                   <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
                     <ion-item>
-                      <ion-label position="floating"> Complexion:</ion-label>
+                      <ion-label class="FontSizeforLable" position="floating"> Complexion:</ion-label>
                       <ion-select  formControlName="Complexion">         
                         <ion-select-option *ngFor="let item of Complexion;">{{item.SkinType}} </ion-select-option>
                   </ion-select>
@@ -86,13 +103,13 @@
                 <ion-row>
                   <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
                     <ion-item>
-                      <ion-label position="floating"> Personal Phone :</ion-label>
+                      <ion-label class="FontSizeforLable" position="floating"> Personal Phone :</ion-label>
                       <ion-input type="text" formControlName="PersonalPhone"></ion-input>
                     </ion-item>
                   </ion-col >
                   <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
                     <ion-item>
-                      <ion-label position="floating"> Pharent Phone:</ion-label>
+                      <ion-label class="FontSizeforLable" position="floating"> Pharent Phone:</ion-label>
                       <ion-input type="text" formControlName="ParentPhone"></ion-input>
                     </ion-item>
                   </ion-col>
@@ -105,7 +122,7 @@
                       <ion-input type="text" formControlName="Cast"></ion-input>
                     </ion-item> -->
                     <ion-item>
-                      <ion-label position="floating"> Cast :</ion-label>
+                      <ion-label class="FontSizeforLable" position="floating"> Cast :</ion-label>
                       <ion-select (ionChange)="GetSubCastByCastId($event)" formControlName="Cast">         
                         <ion-select-option *ngFor="let item of Cast;" value="{{item.castId}}">{{item.CastName }} </ion-select-option>
                   </ion-select>
@@ -117,7 +134,7 @@
                       <ion-input type="text" formControlName="SubCast"></ion-input>
                     </ion-item> -->
                     <ion-item>
-                      <ion-label position="floating"> Sub Cast :</ion-label>
+                      <ion-label class="FontSizeforLable" position="floating"> Sub Cast :</ion-label>
                       <ion-select formControlName="SubCast">         
                         <ion-select-option *ngFor="let item of AllSubCastByCast;" value="{{item.subcastid}}">{{item.subcastname }} </ion-select-option>
                   </ion-select>
@@ -135,7 +152,7 @@
                 <div class="form-row">
                   <div class="form-group col-xs-6 col-sm-6 col-md-12 col-lg-12">
                     <ion-item>
-                      <ion-label position="floating">Address1</ion-label>
+                      <ion-label class="FontSizeforLable" position="floating">Address1</ion-label>
                       <ion-input type="text" formControlName="Address1"></ion-input>
                     </ion-item>
                   </div>
@@ -144,7 +161,7 @@
                 <div class="form-row">
                   <div class="form-group col-xs-6 col-sm-6 col-md-12 col-lg-12">
                     <ion-item>
-                      <ion-label position="floating">Address2</ion-label>
+                      <ion-label class="FontSizeforLable" position="floating">Address2</ion-label>
                       <ion-input type="text" formControlName="Address2"></ion-input>
                     </ion-item>
                   </div>
@@ -153,7 +170,7 @@
                 <div class="form-row">
                   <div class="form-group col-xs-6 col-sm-6 col-md-12 col-lg-12">
                     <ion-item>
-                      <ion-label position="floating"> State :</ion-label>
+                      <ion-label class="FontSizeforLable" position="floating"> State :</ion-label>
                       <ion-select (ionChange)="GetCityByState($event)" formControlName="State">         
                         <ion-select-option *ngFor="let item of AllState;" value="{{item.StateId}}">{{item.StateName }} </ion-select-option>
                   </ion-select>
@@ -164,7 +181,7 @@
                 <div class="form-row">
                   <div class="form-group col-xs-6 col-sm-6 col-md-12 col-lg-12">
                     <ion-item>
-                      <ion-label position="floating"> City :</ion-label>
+                      <ion-label class="FontSizeforLable" position="floating"> City :</ion-label>
                       <ion-select (ionChange)="GetBlockByCity($event)" formControlName="City" >         
                         <ion-select-option *ngFor="let item of AllCityByState;" value="{{item.cityid}}">{{item.cityname }} </ion-select-option>
                   </ion-select>
@@ -175,7 +192,7 @@
                 <div class="form-row">
                   <div class="form-group col-xs-6 col-sm-6 col-md-12 col-lg-12">
                     <ion-item>
-                      <ion-label position="floating"> Block :</ion-label>
+                      <ion-label class="FontSizeforLable" position="floating"> Block :</ion-label>
                       <ion-select formControlName="Block">         
                         <ion-select-option *ngFor="let item of AllBlockByCity;" value="{{item.blockid}}">{{item.blockname }} </ion-select-option>
                   </ion-select>
@@ -192,10 +209,10 @@
                 <ion-list>
                   <ion-radio-group (ionChange) ="onChangeHandler($event)">
                     <ion-item>
-                      <ion-label>10Th</ion-label>
+                      <ion-label class="FontSizeforLable">10Th</ion-label>
                       <ion-radio value="10Th"></ion-radio>                    
                     </ion-item>                   
-                      <div class="text-center purple" *ngIf="Pass10th == 1">10Details                     
+                      <div class="text-center purple FontSizeforLable " *ngIf="Pass10th == 1">10Details                     
                         <ion-item>
                           <ion-label position="floating"> 10th :</ion-label>
                           <ion-select  formControlName="TenthOr12BoardName">         
@@ -205,7 +222,7 @@
                         <ion-row>
                           <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
                             <ion-item>
-                              <ion-label position="floating"> 10th Passed Year :</ion-label>
+                              <ion-label class="FontSizeforLable" position="floating"> 10th Passed Year :</ion-label>
                               <ion-select  formControlName="PassingYear10th">         
                                 <ion-select-option *ngFor="let item of PassingYear10th;">{{item}} </ion-select-option>
                           </ion-select>
@@ -213,7 +230,7 @@
                           </ion-col >
                           <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
                             <ion-item>
-                              <ion-label position="floating"> 10th % :</ion-label>
+                              <ion-label class="FontSizeforLable" position="floating"> 10th % :</ion-label>
                               <ion-select  formControlName="percentageOf10th">         
                                 <ion-select-option *ngFor="let item of percentageOf10th;">{{item}} </ion-select-option>
                           </ion-select>
@@ -222,7 +239,7 @@
                         </ion-row>
                       </div>             
                     <ion-item>
-                      <ion-label>Non 10Th</ion-label>
+                      <ion-label class="FontSizeforLable">Non 10Th</ion-label>
                       <ion-radio value="Non10Th"></ion-radio>
                     </ion-item>
                   </ion-radio-group>
@@ -232,14 +249,14 @@
                 <ion-list>
                   <ion-radio-group (ionChange) ="onChangeHandler12th($event)">
                     <ion-item>
-                      <ion-label>12Th</ion-label>
+                      <ion-label class="FontSizeforLable">12Th</ion-label>
                       <ion-radio value="12Th"></ion-radio>                    
                     </ion-item>                   
-                      <div class="text-center purple" *ngIf="Pass12th == 1">12Details
+                      <div class="text-center purple FontSizeforLable" *ngIf="Pass12th == 1">12Details
                         <ion-row>
                           <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
                             <ion-item>
-                              <ion-label position="floating"> 12th :</ion-label>
+                              <ion-label  class="FontSizeforLable" position="floating"> 12th :</ion-label>
                               <ion-select  formControlName="TenthOr12BoardName">         
                                 <ion-select-option *ngFor="let item of TenthOr12thBardName;">{{item.BoardName }} </ion-select-option>
                           </ion-select>
@@ -247,7 +264,7 @@
                           </ion-col>
                           <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
                             <ion-item>
-                              <ion-label position="floating"> Streams :</ion-label>
+                              <ion-label class="FontSizeforLable" position="floating"> Streams :</ion-label>
                               <ion-select  formControlName="streamsOf12th">         
                                 <ion-select-option *ngFor="let item of streamsOf12th;">{{item}} </ion-select-option>
                           </ion-select>
@@ -258,7 +275,7 @@
                         <ion-row>
                           <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
                             <ion-item>
-                              <ion-label position="floating"> 12th Passed Year :</ion-label>
+                              <ion-label class="FontSizeforLable" position="floating"> 12th Passed Year :</ion-label>
                               <ion-select  formControlName="PassingYear12th">         
                                 <ion-select-option *ngFor="let item of PassingYear12th;">{{item}} </ion-select-option>
                           </ion-select>
@@ -266,7 +283,7 @@
                           </ion-col >
                           <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
                             <ion-item>
-                              <ion-label position="floating"> 12th % :</ion-label>
+                              <ion-label class="FontSizeforLable" position="floating"> 12th % :</ion-label>
                               <ion-select  formControlName="percentageOf12th">         
                                 <ion-select-option *ngFor="let item of percentageOf12th;">{{item}} </ion-select-option>
                           </ion-select>
@@ -281,14 +298,14 @@
                  <ion-list>
                   <ion-radio-group (ionChange) ="onChangeHandlerGradution($event)">
                     <ion-item>
-                      <ion-label>Gradution</ion-label>
+                      <ion-label class="FontSizeforLable">Gradution</ion-label>
                       <ion-radio value="Gradution"></ion-radio>                    
                     </ion-item>                   
-                      <div class="text-center purple" *ngIf="Gradution == 1">Gradution Details
+                      <div class="text-center purple FontSizeforLable" *ngIf="Gradution == 1">Gradution Details
                         <ion-row>
                           <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
                             <ion-item>
-                              <ion-label position="floating"> Gradution :</ion-label>
+                              <ion-label class="FontSizeforLable" position="floating"> Gradution :</ion-label>
                               <ion-select  formControlName="Gradution">         
                                 <ion-select-option *ngFor="let item of UniversityName;">{{item.UniversityName }} </ion-select-option>
                           </ion-select>
@@ -296,7 +313,7 @@
                           </ion-col>
                           <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
                             <ion-item>
-                              <ion-label position="floating"> Streams :</ion-label>
+                              <ion-label class="FontSizeforLable" position="floating"> Streams :</ion-label>
                               <ion-select  formControlName="streamsOfGradution">         
                                 <ion-select-option *ngFor="let item of streamsOfGradution;">{{item.UG_CourseName}} </ion-select-option>
                           </ion-select>
@@ -307,7 +324,7 @@
                         <ion-row>
                           <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
                             <ion-item>
-                              <ion-label position="floating"> Gradution Passed Year :</ion-label>
+                              <ion-label class="FontSizeforLable" position="floating"> Gradution Passed Year :</ion-label>
                               <ion-select  formControlName="PassingYearGradution">         
                                 <ion-select-option *ngFor="let item of PassingYearGradution;">{{item}} </ion-select-option>
                           </ion-select>
@@ -315,7 +332,7 @@
                           </ion-col >
                           <ion-col col-xs-6 col-sm-6 col-md-12 col-lg-12 >
                             <ion-item>
-                              <ion-label position="floating"> Gradution % :</ion-label>
+                              <ion-label class="FontSizeforLable" position="floating"> Gradution % :</ion-label>
                               <ion-select  formControlName="percentageOfGradution">         
                                 <ion-select-option *ngFor="let item of percentageOfGradution;">{{item}} </ion-select-option>
                           </ion-select>

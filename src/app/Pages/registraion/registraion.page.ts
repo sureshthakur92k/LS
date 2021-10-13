@@ -36,6 +36,7 @@ Gradution:any;
 Complexion:any=[];
 Height:any=[];
 Cast:any=[];
+Gender:any;
   // constructor(
   //   private http:HttpClient,
   //   public formBuilder: FormBuilder
@@ -69,7 +70,7 @@ Cast:any=[];
       this.percentageOf10th=[30,35,40,45,50,55,60,65,70,75,80,85,90,95];
       this.percentageOf12th=[30,35,40,45,50,55,60,65,70,75,80,85,90,95];
       this.percentageOfGradution=[30,35,40,45,50,55,60,65,70,75,80,85,90,95];
-      
+      this.Gender=["Male","Female"]
       
      this.streamsOf12th=["Science","Commerce","Arts"];
      this.GetGradutionStream().subscribe(data=>{
@@ -104,6 +105,7 @@ Cast:any=[];
             ParentPhone:new FormControl(''),
             Cast:new FormControl(''),
             SubCast:new FormControl(''),
+            Gender:new FormControl(''),
             
             
         });
@@ -172,7 +174,11 @@ Cast:any=[];
       var Block=this.AllBlockByCity.filter(
         block => block.blockid === Number(this.addressDetails.value.Block));
     
-      
+        var Cast=this.Cast.filter(
+          cast => cast.castId === Number(this.personalDetails.value.Cast));
+
+          var SubCast=this.AllSubCastByCast.filter(
+            Subcast => Subcast.subcastid === Number(this.personalDetails.value.SubCast));
     
       this.RegObje.FirstName=this.personalDetails.value.FirstName;
       this.RegObje.LastName=this.personalDetails.value.LastName;
@@ -194,6 +200,16 @@ Cast:any=[];
       this.RegObje.streamsOf12th=this.educationalDetails.value.streamsOf12th
       this.RegObje.Gradution=this.educationalDetails.value.Gradution
       this.RegObje.streamsOfGradution=this.educationalDetails.value.streamsOfGradution
+
+      this.RegObje.PersonalEmail=this.personalDetails.value.PersonalEmail
+      this.RegObje.Height=this.personalDetails.value.Height
+      this.RegObje.Complexion=this.personalDetails.value.Complexion
+      this.RegObje.PersonalPhone=this.personalDetails.value.PersonalPhone
+      this.RegObje.ParentPhone=this.personalDetails.value.ParentPhone
+      this.RegObje.Gender=this.personalDetails.value.Gender
+      
+      this.RegObje.Cast=Cast[0].CastName
+      this.RegObje.SubCast=SubCast[0].subcastname
       debugger;
       this.SaveRegistrationService(this.RegObje).subscribe(d=>{
         var ss=d;
@@ -228,7 +244,15 @@ RegObje={
   percentageOfGradution:"",
   streamsOf12th:"",
   Gradution:"",
-  streamsOfGradution:""
+  streamsOfGradution:"",
+  PersonalEmail:"",
+  Height:"",
+  Complexion:"",
+  PersonalPhone:"",
+  ParentPhone:"",
+  Cast:"",
+  SubCast:"",
+  Gender:"",
 }
 ResetAll()
 {
@@ -355,7 +379,16 @@ ionViewWillEnter()
       "percentageOfGradution":RegObj.percentageOfGradution,
       "streamsOf12th":RegObj.streamsOf12th,
       "Gradution":RegObj.Gradution,
-      "streamsOfGradution":RegObj.streamsOfGradution
+      "streamsOfGradution":RegObj.streamsOfGradution,
+
+      "Complexion":RegObj.Complexion,
+      "Height":RegObj.Height,
+      "PersonalEmail":RegObj.PersonalEmail,
+      "PersonalPhone":RegObj.PersonalPhone,
+      "ParentPhone":RegObj.ParentPhone,
+      "Cast":RegObj.Cast,
+      "SubCast":RegObj.SubCast,
+      "Gender":RegObj.Gender
       
     } 
     return this.http.post("http://localhost:4506/api/NewRegistraion",obj);
