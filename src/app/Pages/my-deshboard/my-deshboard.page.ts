@@ -4,6 +4,7 @@ import htmlToPdfmake from "html-to-pdfmake"
 
  import pdfMake from "pdfmake/build/pdfmake"
 import pdfFonts from "pdfmake/build/vfs_fonts"
+import {HttpClient} from '@angular/common/http';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -13,14 +14,32 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
   styleUrls: ['./my-deshboard.page.scss'],
 })
 export class MyDeshboardPage implements OnInit {
-
-  constructor() { }
+  UserDetailsData: any=[];
+  constructor(private http:HttpClient) { }
 
   ngOnInit() {
+  }
+  GetUserDetails(UserId:any)
+  {
+    debugger;
+    this.GetUserDetailsByIdService(UserId).subscribe(s=>{
+      this.UserDetailsData=s;
+      this.UserDetailsData=this.UserDetailsData.recordsets[0];
+     //console.log("City data "+JSON.stringify(this.AllCityByState) );
+    });
+  }
+  GetUserDetailsByIdService(UserId:any)
+  {
+    var  postData = {
+      "RegId":UserId
+                  } 
+    return this.http.post("http://localhost:4506/api/GetUserDetailsById",postData);
   }
   Download()
   {
     debugger;
+    var id=2020;
+    var a=this.GetUserDetails(id);
     this.downloadPdf();
   }
   downloadPdf()
